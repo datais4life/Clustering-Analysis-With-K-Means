@@ -24,19 +24,41 @@ The main challenge in k-means is choosing the appropriate value of 'k.' There ar
 * Sci-kit Learn
 * Kneed
 
-### Data Ingestion
-The data is read into the Jupyter Notebook using Pandas read_csv() method.
-```
-df = pd.read_csv('churn.csv')
-```
+### Data Exploration
+A pair plot is created to compare all features and their distributions.
+![Pair Plot](pair.png)
 
-### Data Cleaning
-The dataframe is fairly clean already and just needs some minor manipulation to get it ready for analysis. Using the columns command, the attributes are observed and the drop() method is used to eliminate those that are not needed.
-![Dropping Columns](drop.png)
+A correlation matrix is created to identify highly correlated features.
+![Correlation Matrix](correlation.png)
 
-Using the loc() method, the customers who have churned from the provider are isolated. The dataframe now consists of 2650 rows of customer data and 32 attributes. 
-![Churned Customers](churned.png)
+A scatter plot of the customers who churned to see the distribution in relation to tenure.
+![Scatter Plot](scatter.png)
 
-With the select_dtypes() method, the continuous numerical variables are found and evaluated.
-![Numerical Variables](numerical.png)
+A boxplot helps to find outlying data in the features.
+![Boxplot](box.png)
 
+### Analysis
+To determine the number of clusters needed for the K-Means analysis, two methods are deployed and compared. 
+The elbow method plots the explained variation as a function of the number of clusters and picks the elbow of the curve as the number of clusters to use for the analysis.
+![Elbow Method](elbow.png)
+
+K-Means is processed from the elbow method using 2 clusters and then again using 3 clusters to compare. The results are plotted on a scatter plot.
+![Elbow Two Clusters](two.png)
+![Elbow Three Clusters](three.png)
+
+The silhouette method calculates the silhouette index for each sample, average silhouette index for each cluster and the overall average silhouette index for the data. This method calculates the separation distance between the resulting clusters, makling it a more reliable analysis method.
+![Silhoutte Method](silhouette.png)
+
+Using the silhouette method, the K-Means analysis is processed using 2, 3 and 4 clusters and plotted for analysis with the average silhouette score plotted in red. 
+![Silhoutte Two Clusters](s_two.png)
+![Silhoutte Three Clusters](s_three.png)
+![Silhoutte Four Clusters](s_four.png)
+
+### Results
+The K-Means analysis showed definite clusters of data points in the analysis. These clusters are highly concentrated, showing that the data points all have a small Euclidian distance from the centroid of the cluster. This suggests that the model is accurate and representative of the data. The variables determined to impact the churned customers in the greatest manner are monthly charge and tenure. The higher the monthly charge and the lower tenure values, equate to the customer discontinuing the service with the provider. 
+
+### Limitations 
+A limitation of the analysis was determining the number of clusters that was best for the analysis. There are two methods that are used in this analysis, and they differ in their results. Diving further into the silhouette method and obtaining the coefficients and creating the silhouette analysis helped to clarify the optimal number of clusters. 
+
+### Recommendations 
+The results of the K-Means analysis showed that a high monthly charge early into a customer’s service is the main factors for their decision to leave the provider. Creating a marketing campaign to target these customers and offer them a discount incentive for remaining with the service would increase the chance of retaining the customer.
