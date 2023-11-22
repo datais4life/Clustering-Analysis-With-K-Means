@@ -26,32 +26,43 @@ The main challenge in k-means is choosing the appropriate value of 'k.' There ar
 
 ### Data Exploration
 A pair plot is created to compare all features and their distributions.
+
 ![Pair Plot](pair.png)
 
 A correlation matrix is created to identify highly correlated features.
+
 ![Correlation Matrix](correlation.png)
 
 A scatter plot of the customers who churned to see the distribution in relation to tenure.
+
 ![Scatter Plot](scatter.png)
 
 A boxplot helps to find outlying data in the features.
+
 ![Boxplot](box.png)
 
 ### Analysis
 To determine the number of clusters needed for the K-Means analysis, two methods are deployed and compared. 
 The elbow method plots the explained variation as a function of the number of clusters and picks the elbow of the curve as the number of clusters to use for the analysis.
+
 ![Elbow Method](elbow.png)
 
 K-Means is processed from the elbow method using 2 clusters and then again using 3 clusters to compare. The results are plotted on a scatter plot.
+
 ![Elbow Two Clusters](two.png)
+
 ![Elbow Three Clusters](three.png)
 
 The silhouette method calculates the silhouette index for each sample, average silhouette index for each cluster and the overall average silhouette index for the data. This method calculates the separation distance between the resulting clusters, makling it a more reliable analysis method.
+
 ![Silhoutte Method](silhouette.png)
 
 Using the silhouette method, the K-Means analysis is processed using 2, 3 and 4 clusters and plotted for analysis with the average silhouette score plotted in red. 
+
 ![Silhoutte Two Clusters](s_two.png)
+
 ![Silhoutte Three Clusters](s_three.png)
+
 ![Silhoutte Four Clusters](s_four.png)
 
 ### Results
